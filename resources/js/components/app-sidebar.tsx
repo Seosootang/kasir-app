@@ -4,7 +4,7 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
+import { BookOpen, Folder, LayoutGrid, ReceiptText, ShoppingBasket, Tag } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -12,6 +12,24 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: '/dashboard',
         icon: LayoutGrid,
+    },
+];
+
+const kasirNavItems: NavItem[] = [
+    {
+        title: 'Kategori',
+        href: '/kasir/categories',
+        icon: Tag,
+    },
+    {
+        title: 'Produk',
+        href: '/kasir/products',
+        icon: ShoppingBasket,
+    },
+    {
+        title: 'Transaksi',
+        href: '/kasir/transactions',
+        icon: ReceiptText,
     },
 ];
 
@@ -44,7 +62,8 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={mainNavItems} />
+                <NavMain items={mainNavItems} label="Menu" />
+                <NavMain items={kasirNavItems} label="Kasir" />
             </SidebarContent>
 
             <SidebarFooter>
